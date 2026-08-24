@@ -1,4 +1,4 @@
-name: Football AI Agent
+name:  Football AI Agent v2
 
 on:
   workflow_dispatch:
