@@ -12,7 +12,7 @@ prompt = """
 اكتب منشورًا قصيرًا وجذابًا عن كرة القدم لصفحة فيسبوك.
 اجعله باللغة العربية، بأسلوب حماسي، ومن دون اختلاق أخبار أو نتائج.
 """
-
+print("MODEL USED: gemini-3.6-flash")
 response = client.models.generate_content(
    model="gemini-3.6-flash",
     contents=prompt
