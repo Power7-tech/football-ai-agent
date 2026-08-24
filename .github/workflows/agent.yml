@@ -29,11 +29,6 @@ jobs:
         run: |
           pip install google-genai requests
 
-      - name: Test image generation
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python test_image.py
-
       - name: Run agent
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
