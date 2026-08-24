@@ -15,3 +15,6 @@ jobs:
 
       - name: Python test
         run: python --version
+
+      - name: Install Gemini
+        run: pip install google-genai
