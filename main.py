@@ -14,7 +14,7 @@ page_id = os.environ["FB_PAGE_ID"]
 page_access_token = os.environ["FB_PAGE_ACCESS_TOKEN"]
 football_api_key = os.environ["API_FOOTBALL_KEY"]
 
-
+ 
 # =========================
 # Gemini
 # =========================
