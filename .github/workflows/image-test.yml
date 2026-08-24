@@ -10,11 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Hello
-        run: echo "IMAGE TEST WORKFLOW IS RUNNING"
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Python test
         run: python --version
 
       - name: Install Gemini
         run: pip install google-genai
+
+      - name: Check test file
+        run: |
+          ls -la
+          test -f test_image.py
+          echo "test_image.py FOUND"
