@@ -6,9 +6,31 @@ on:
       - main
 
 jobs:
-  test:
+  test-image:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Test
-        run: echo "IMAGE TEST WORKFLOW IS RUNNING"
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install google-genai
+
+      - name: Check Python
+        run: python --version
+
+      - name: Check test file
+        run: |
+          ls -la
+          test -f test_image.py
+
+      - name: Test image generation
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python test_image.py
