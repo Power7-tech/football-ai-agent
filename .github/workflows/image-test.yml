@@ -25,4 +25,4 @@ jobs:
       - name: Test image generation
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python test_image.py 
+        run: python test_image.py
