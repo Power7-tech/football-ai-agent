@@ -1,4 +1,4 @@
-name:  Football AI Agent
+name: Football AI Agent
 
 on:
   push:
@@ -11,11 +11,12 @@ on:
     - cron: "30 21 * * *"
 
   workflow_dispatch:
+
 jobs:
   run-agent:
     runs-on: ubuntu-latest
 
-    steps: 
+    steps:
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -28,14 +29,15 @@ jobs:
         run: |
           pip install google-genai requests
 
+      - name: Test image generation
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python test_image.py
+
       - name: Run agent
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-          - name: Test image generation
-  env:
-    GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-  run: python test_image.py
         run: python main.py
